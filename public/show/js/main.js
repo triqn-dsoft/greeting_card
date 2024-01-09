@@ -4,6 +4,17 @@ let playList = []
 let showedId = []
 let isShowing = false;
 let isInitial = true;
+let isFullScreen = false;
+let fullscreenbtn = document.getElementById('fullscreenmode')
+document.addEventListener("fullscreenchange", (event) => {
+  if (!isFullScreen) {
+    isFullScreen = true
+    fullscreenbtn.style.display = 'none'
+  } else {
+    isFullScreen = false
+    fullscreenbtn.style.display = 'initial'
+  }
+})
 messagesRef.onSnapshot(snapshot => {
   let changes = snapshot.docChanges();
   changes.forEach(change => {
@@ -24,7 +35,8 @@ $(document).ready(function () {
   confetti.render();
   canvasC.style.display = 'initial'
   syncDataFromFirebase();
-  canvasC.addEventListener('dbclick', fullscreen, false)
+
+  fullscreenbtn.addEventListener('click', fullscreen, false)
 })
 const syncDataFromFirebase = async (doc) => {
   console.log('Get data from Firebase...')
@@ -45,7 +57,20 @@ const syncDataFromFirebase = async (doc) => {
 }
 
 function fullscreen() {
-  console.log("Double click!")
+  if (!isFullScreen) {
+    fullscreenOn();
+  }
+}
+
+function fullscreenOn() {
+  var elem = document.documentElement
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
 }
 
 function showWishingMessage() {
