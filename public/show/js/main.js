@@ -92,16 +92,16 @@ function showWishingMessage() {
       }
       $(split.chars).each(function (i) {
         isShowing = true
-        TweenMax.from($(this), 3.5, {
+        TweenMax.from($(this), 1.5, {
           opacity: 0,
           x: random(-1500, 1500),
           y: random(-1500, 1500),
           z: random(-1500, 1500),
           scale: .2,
-          delay: i * .01,
+          delay: i * .02,
           yoyo: true,
           repeat: 1,
-          repeatDelay: 1,
+          repeatDelay: 5,
           onComplete: () => {
             if (i === split.chars.length - 1) {
               updateShowCount(doc)

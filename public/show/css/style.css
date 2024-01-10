@@ -21,11 +21,14 @@ body {
 
 .box {
     text-align: left;   
+    margin-right: 20%; /* Đặt margin phải là auto để canh lề phải */
+    margin-left: 20%; 
 }
 .box #content {
     text-align: left;
     font-size: 4rem;
     font-weight: bold;
+   
 }
 
 .box #name {
