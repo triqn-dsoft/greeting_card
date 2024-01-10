@@ -42,7 +42,7 @@ const displayEmployees = async (doc) => {
 	let employees = employeeRef;
 	// .startAfter(doc || 0).limit(10000)
 
-	const data = await employees.get();
+	const data = await employees.orderBy('createdAt', 'desc').get();
 
 	data.docs.forEach(doc => {
 		const wish = doc.data();

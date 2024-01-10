@@ -80,8 +80,9 @@ function showWishingMessage() {
       const doc = playList[index]
       const wishContent = document.getElementById("content")
       const wishName = document.getElementById("name")
-      wishContent.textContent = doc.data().message;
+      wishContent.innerHTML = doc.data().message.replace(/\n/g, '<br>');
       wishName.textContent = doc.data().name;
+      console.log(wishContent)
       console.log("showing... ", wishContent.textContent)
       var text = $('.split');
       var split = new SplitText(text);
@@ -97,10 +98,10 @@ function showWishingMessage() {
           y: random(-1500, 1500),
           z: random(-1500, 1500),
           scale: .2,
-          delay: i * .02,
+          delay: i * .01,
           yoyo: true,
           repeat: 1,
-          repeatDelay: 5,
+          repeatDelay: 1,
           onComplete: () => {
             if (i === split.chars.length - 1) {
               updateShowCount(doc)
