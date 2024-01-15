@@ -133,11 +133,8 @@ iframe {
   min-height: 100%;
   padding: 15px;
 
-  background: #009bff;
-  background: -webkit-linear-gradient(left, #47c9a2, #47c9a2);
-  background: -o-linear-gradient(left, #47c9a2, #47c9a2);
-  background: -moz-linear-gradient(left, #47c9a2, #47c9a2);
-  background: linear-gradient(left, #47c9a2, #47c9a2);
+  background: #57b846;
+
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -155,22 +152,40 @@ iframe {
   border-radius: 10px;
   overflow: hidden;
   background-size: cover;
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
+  display: -ms-flexbox; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
   padding: 90px 130px 88px 148px;
+}
+
+.logo {
+  width: 100%;
+  height: 80px;
+  transform: translateY(-60px);
+  /* position: absolute;
+  top: 15px;
+  transform: translateX(50%); */
+}
+
+.wrap-text {
+  width: 100%;
+  text-align: center;
 }
 
 /*------------------------------------------------------------------
 [  ]*/
 .contact1-pic {
   width: 296px;
+  margin: auto;
 }
 
 .contact1-pic img {
@@ -269,6 +284,7 @@ textarea.input1 + .shadow-input1 {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -326,7 +342,7 @@ textarea.input1 + .shadow-input1 {
 
 @media (max-width: 1200px) {
   .contact1-pic {
-    width: 33.5%;
+    width: 70%;
   }
 
   .contact1-form {
@@ -337,10 +353,13 @@ textarea.input1 + .shadow-input1 {
 @media (max-width: 992px) {
   .container-contact1 {
     padding: 90px 80px 88px 90px;
+    /* display: flex;
+    justify-content: center; */
+    grid-template-columns: 1fr 2fr;
   }
 
   .contact1-pic {
-    width: 35%;
+    width: 70%;
   }
 
   .contact1-form {
@@ -351,6 +370,7 @@ textarea.input1 + .shadow-input1 {
 @media (max-width: 768px) {
   .container-contact1 {
     padding: 90px 80px 88px 80px;
+    grid-template-columns: 1fr;
   }
 
   .contact1-pic {
